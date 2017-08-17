@@ -2,6 +2,7 @@
 
 require 'rubygems'
 require 'nokogiri'
+require "./lib/microsoft_translator"
 
 # ToshiemonSlackBots
 #   This module is the namespace for toshiemon slack-bots definition
@@ -16,9 +17,7 @@ module ToshiemonSlackBots
 
       def initialize(url)
         @url = url
-        @consumer_key = ENV["MS_TRANSLATE_CS_KEY"]
-        @consumer_secret = ENV["MS_TRANSLATE_CS_SECRET"]
-        @token = ENV["MS_TRANSLATE_TOKEN"]
+        @client = MicrosoftTranslator::Client.new
       end
     end
   end
