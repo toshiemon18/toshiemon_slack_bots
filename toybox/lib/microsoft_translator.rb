@@ -39,10 +39,11 @@ module ToshiemonSlackBots
         client(@token, post_params)
       end
 
+      private
       def client(token, params)
         connector = Faraday::Connection.new(url: ENDPOINT) do |faraday|
           faraday.use Faraday::Request::UrlEncoded
-          faraday.use Faraday::Response::Logger
+          # faraday.use Faraday::Response::Logger
           faraday.use Faraday::Adapter::NetHttp
         end
         headers = params
